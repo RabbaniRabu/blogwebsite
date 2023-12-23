@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 1em;
+        }
+
+        #locationInput {
+            padding: 8px;
+            margin: 10px;
+        }
+
+        #getWeatherBtn {
+            background-color: #2ecc71;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #weatherInfo {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Weather App</h1>
+    </header>
+
+    <div>
+        <input type="text" id="locationInput" placeholder="Enter location">
+        <button id="getWeatherBtn" onclick="getWeather()">Get Weather</button>
+    </div>
+
+    <div id="weatherInfo"></div>
+
+    <script>
+        function getWeather() {
+            var locationInput = document.getElementById('locationInput');
+            var weatherInfo = document.getElementById('weatherInfo');
+
+            // Placeholder for the actual API key and API endpoint
+            var apiKey = 'YOUR_API_KEY';
+            var apiUrl = 'https://api.weatherapi.com/v1/current.json';
+
+            // Placeholder for the sample response
+            var sampleResponse = {
+                location: {
+                    name: 'City Name',
+                    region: 'Region Name',
+                    country: 'Country Name',
+                },
+                current: {
+                    temp_c: 25,
+                    condition: {
+                        text: 'Clear',
+                        icon: 'https://example.com/icon.png',
+                    },
+                },
+            };
+
+            // Fetch weather data (replace with actual API request)
+            // In a real app, you would use fetch() or another method
+            // to get data from a weather API using the provided locationInput value and apiKey
+            // For now, we'll use the sample response
+            var weatherData = sampleResponse;
+
+            // Display weather information
+            weatherInfo.innerHTML = `
+                <h2>${weatherData.location.name}, ${weatherData.location.region}, ${weatherData.location.country}</h2>
+                <p>Temperature: ${weatherData.current.temp_c}°C</p>
+                <p>Condition: ${weatherData.current.condition.text}</p>
+                <img src="${weatherData.current.condition.icon}" alt="Weather Icon">
+            `;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #quiz-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .question {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .option {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #e0e0e0;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <div class="question" id="question1">What is the capital of France?</div>
+        <div class="options" id="options1">
+            <div class="option" onclick="checkAnswer(1, 'Paris')">Paris</div>
+            <div class="option" onclick="checkAnswer(1, 'Berlin')">Berlin</div>
+            <div class="option" onclick="checkAnswer(1, 'Rome')">Rome</div>
+        </div>
+
+        <div class="question" id="question2">Which planet is known as the Red Planet?</div>
+        <div class="options" id="options2">
+            <div class="option" onclick="checkAnswer(2, 'Mars')">Mars</div>
+            <div class="option" onclick="checkAnswer(2, 'Jupiter')">Jupiter</div>
+            <div class="option" onclick="checkAnswer(2, 'Venus')">Venus</div>
+        </div>
+
+        <div class="question" id="question3">What is the largest mammal on Earth?</div>
+        <div class="options" id="options3">
+            <div class="option" onclick="checkAnswer(3, 'Elephant')">Elephant</div>
+            <div class="option" onclick="checkAnswer(3, 'Blue Whale')">Blue Whale</div>
+            <div class="option" onclick="checkAnswer(3, 'Giraffe')">Giraffe</div>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let score = 0;
+
+        function checkAnswer(questionNumber, selectedAnswer) {
+            console.log(`Question ${questionNumber}: ${selectedAnswer}`);
+            score++;
+
+            // Show result after all questions are answered
+            if (questionNumber === 3) {
+                document.getElementById('result').innerHTML = `Your score: ${score}/3`;
+            }
+
+            // Disable further clicking on options
+            const options = document.getElementById(`options${questionNumber}`).querySelectorAll('.option');
+            options.forEach(option => option.onclick = null);
+        }
+    </script>
+</body>
+</html>

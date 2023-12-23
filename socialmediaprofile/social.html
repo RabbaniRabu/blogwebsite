@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#profile {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+#profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+#profile-name {
+    color: #333;
+    margin: 10px 0;
+}
+
+#profile-bio {
+    color: #666;
+}
+
+h2 {
+    color: #333;
+}
+
+#post-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.post {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+</style>
+<body>
+    <div id="profile">
+        <header>
+            <img id="profile-picture" src="data:image/jpeg;base64,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" alt="Profile Picture">
+            <h1 id="profile-name">John Doe</h1>
+            <p id="profile-bio">Web Developer</p>
+        </header>
+        <section id="post-section">
+            <h2>Posts</h2>
+            <ul id="post-list">
+                <!-- Posts will be dynamically added here -->
+            </ul>
+        </section>
+    </div>
+    <script>
+        // Example data for posts
+const posts = [
+    { content: "Hello, everyone! This is my first post.", timestamp: "2023-01-01" },
+    { content: "Enjoying a beautiful day.", timestamp: "2023-01-02" },
+    { content: "Coding all day long! 💻", timestamp: "2023-01-03" }
+];
+
+// Function to dynamically create post elements
+function createPostElement(post) {
+    const postElement = document.createElement('li');
+    postElement.classList.add('post');
+    postElement.innerHTML = `
+        <p>${post.content}</p>
+        <small>${post.timestamp}</small>
+    `;
+    return postElement;
+}
+
+// Function to display posts
+function displayPosts() {
+    const postList = document.getElementById('post-list');
+    postList.innerHTML = ''; // Clear previous posts
+
+    posts.forEach(post => {
+        const postElement = createPostElement(post);
+        postList.appendChild(postElement);
+    });
+}
+
+// Display posts when the page loads
+displayPosts();
+
+    </script>
+</body>
+</html>
